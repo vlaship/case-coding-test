@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+    <changeSet id="1643128344-01" author="developer">
+        <createTable tableName="cases">
+            <column name="case_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(50)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="severity" type="int"/>
+            <column name="status" type="varchar(10)"/>
+            <column name="user_id" type="int"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1643128344-02" author="developer">
+        <createTable tableName="notes">
+            <column name="note_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="case_id" type="int"/>
+            <column name="details" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1643128344-03" author="developer">
+        <createTable tableName="users">
+            <column name="user_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="firstname" type="varchar(50)"/>
+            <column name="lastname" type="varchar(50)"/>
+            <column name="email" type="varchar(50)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
